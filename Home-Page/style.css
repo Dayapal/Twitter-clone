@@ -5,8 +5,34 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+/* ---------------scroll bar part ---------------------- */
 
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px; 
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #016423, #2575fc);
+    border-radius: 10px;
+    height: 2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
+}
+
+
+
+/* --------------------------------------------------------content part---------- */
 .parent-container {
     display: flex;
     height: 100vh;
@@ -61,7 +87,7 @@
     height: 100%;
     top: 90px;
     left: 0;
-    background: linear-gradient(-45deg , #ed1c94, #ffec17);
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
     position: absolute;
     transition: .5s;
 
@@ -87,7 +113,7 @@
 /* ------------------------------------------------------------------- */
 .middle-content-page {
     width: 55%;
-    padding: 1rem;
+    /* padding: 1rem; */
     overflow-y: auto; 
     border: 1px solid grey;
 }
@@ -96,8 +122,16 @@
     display: flex;
     font-size: larger;
     justify-content: space-evenly;
-    padding: 1rem;
+    /* padding: 1rem; */
     color: grey;
+}
+
+hr {
+    border: none; 
+    height: 1px; /* Adjust thickness */
+    background-color: #434343; /* Set the color */
+    margin: 1rem 0; /* Add space above and below */
+    border-radius: 5px; /* Optional: Make edges rounded */
 }
 
 .profile-section {
@@ -118,22 +152,27 @@
     color: gray;
     font-size: 1.2rem;
 }
-h2{
+#show{
     text-align: center;
-    padding: 2rem;
     color: rgb(52, 123, 172);
+    font-size: 1.2rem;
 }
 
 .icon-section {
     display: flex;
     justify-content: space-between;
     font-size: larger;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
+    /* margin-left: 8rem; */
 } 
+.icon-section .icons{
+    display: flex;
+    gap: 5px;
+}
 
 .icons  a{
-    width: 4.5rem;
-    height: 3rem;
+    width: 7rem;
+    height: 2.5rem;
     text-decoration: none;
     text-align: center;
     color: rgb(3, 82, 172);
@@ -183,7 +222,7 @@ h2{
 
 
 .icons {
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: space-evenly;
     gap: 1rem;
@@ -192,22 +231,28 @@ h2{
     /* background-color: red; */
 }
 .icon-section button{
+    margin-right: 2rem;
     width: 5rem;
     height: 2.5rem;
     border-radius: 1.4rem;
     border: none;
 }
-
+.icon-section button:hover{
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
+    cursor: pointer;
+    
+}
 .card-content {
     margin-top: 2rem;
 }
 .card-content > div{
-    padding: 1rem;
+    /* padding: 1rem; */
     border: 1px solid grey;
     
 }
 .card-content img {
-    width: 100%;
+    margin: 1rem;
+    width: 95%;
     border-radius: 2rem;
     border: 1px solid grey;
 }
@@ -216,7 +261,7 @@ h2{
     display: flex;
     justify-content: space-between;
     font-size: 1.5rem;
-    margin-top: 1rem;
+    margin: .2rem 2rem .5rem 2rem;
 }
 #profile-image{
     width: 2.9rem;
@@ -238,6 +283,13 @@ h2{
 .profile-items > div{
     margin: .4rem;
 }
+.left-content > div i{
+    margin-right: .5rem;
+    color: gray;
+}
+#first-post img{
+    width: 60%;
+}
 #snd-image img{
     width: 70%;
     margin-left: 2rem;
@@ -253,12 +305,17 @@ h2{
     width: 70%;
     margin: 4rem;
 }
+#elon-musk img{
+    width: 60%;
+    margin-left: 10rem;
+
+}
 /* -------------------------------------------------------------------------- */
 
 
 .parent-container  .right-side-page {
-    width: 40%;
-    background-color: rgb(7, 3, 3);
+    width: 38%;
+    background-color: rgb(0, 0, 0);
 }
 
 .parent-container  .right-side-page input{
@@ -276,13 +333,19 @@ h2{
 
 .search-container {
     position: relative;
-    margin: 20px auto;
+    margin: 1rem 0rem 0rem 2rem;
+
    
+  }
+  .search-container input:hover{
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
+    cursor: pointer;
+    border-radius: 3rem;
   }
 
   .search-container input[type="text"] {
     width: 80%;
-    padding: 10px 10px 10px 50px; /* Add space to the left for the search icon */
+    padding: 10px 10px 10px 50px; 
     box-sizing: border-box;
     border-radius: 2rem; 
     font-size: 1.2rem;
