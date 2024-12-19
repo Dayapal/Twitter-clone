@@ -12,7 +12,7 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      background: black;
       color: #e1e8ed;
       text-align: center;
       padding: 1rem;
@@ -111,7 +111,6 @@
   <div id="content" class="message-container"></div>
   
   <script>
-    
     const messages = [
       { sender: "SellmonBhai", message: "I'll be dead!!!", time: "2m ago" },
       { sender: "LawrenceBishnoi", message: "I will kill Sellmon!!", time: "5m ago" },
@@ -150,7 +149,6 @@
       });
     }
 
-    
     messagesTab.addEventListener("click", () => {
       renderContent(messages);
       messagesTab.classList.add("active");
