@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    .header {
+      width: 100%;
+      background-color: #1da1f2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .notification-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .notifications-list {
+      list-style: none;
+      width: 100%;
+    }
+    .notification-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .notification-item:hover {
+      background-color: #f0fdff;
+    }
+    .notification-item:last-child {
+      border-bottom: none;
+    }
+    .notification-content {
+      margin-left: 0.5rem;
+      line-height: 1.5;
+    }
+    .notification-content .title {
+      font-weight: bold;
+      color: #1da1f2;
+    }
+    .notification-content .time {
+      font-size: 0.85rem;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Notifications</h1>
+  </header>
+  <main class="notification-container">
+    <ul id="notifications-list" class="notifications-list"></ul>
+  </main>
+  <script>
+    const notifications = [
+      { title: "New Like", message: "Someone liked your tweet!", time: "2m ago" },
+      { title: "New Follower", message: "Your girl started following you.", time: "10m ago" },
+      { title: "Mention", message: "@Sellmon Bhai mentioned you in a tweet.", time: "1h ago" }
+    ];
+    const notificationList = document.getElementById("notifications-list");
+    function renderNotifications() {
+      notifications.forEach((notif) => {
+        const listItem = document.createElement("li");
+        listItem.className = "notification-item";
+        listItem.innerHTML = `
+          <div class="notification-content">
+            <span class="title">${notif.title}</span>
+            <p>${notif.message}</p>
+            <span class="time">${notif.time}</span>
+          </div>
+        `;
+        listItem.addEventListener("click", () => {
+          alert(`You clicked on: ${notif.title}`);
+        });
+        notificationList.appendChild(listItem);
+      });
+    }
+    renderNotifications();
+  </script>
+</body>
+</html>

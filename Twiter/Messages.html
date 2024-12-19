@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+    .header {
+      width: 100%;
+      background-color: #1da1f2;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .messages-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 1rem auto;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    .messages-list {
+      list-style: none;
+      width: 100%;
+    }
+    .message-item {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .message-item:hover {
+      background-color: #f0f8ff;
+    }
+    .message-item:last-child {
+      border-bottom: none;
+    }
+    .message-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #ddd;
+      flex-shrink: 0;
+    }
+    .message-content {
+      margin-left: 0.5rem;
+      line-height: 1.5;
+      width: 100%;
+    }
+    .message-content .name {
+      font-weight: bold;
+      color: #333;
+    }
+    .message-content .preview {
+      font-size: 0.9rem;
+      color: gray;
+    }
+    .message-content .time {
+      font-size: 0.85rem;
+      color: gray;
+      text-align: right;
+      margin-left: auto;
+    }
+    .message-top {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Messages</h1>
+  </header>
+  <main class="messages-container">
+    <ul id="messages-list" class="messages-list"></ul>
+  </main>
+  <script>
+    const messages = [
+      {
+        name: "Yash Singh",
+        preview: "Cricket Time it is...!!!",
+        time: "6:30 AM",
+      },
+      {
+        name: "Sellmon Bhai",
+        preview: "Court hearing again !",
+        time: "3:45 PM",
+      },
+      {
+        name: "Kunal",
+        preview: "Can you send me the report by EOD?",
+        time: "Yesterday",
+      },
+    ];
+    const messagesList = document.getElementById("messages-list");
+    function renderMessages() {
+      messages.forEach((msg) => {
+        const listItem = document.createElement("li");
+        listItem.className = "message-item";
+        listItem.innerHTML = `
+          <div class="message-avatar"></div>
+          <div class="message-content">
+            <div class="message-top">
+              <span class="name">${msg.name}</span>
+              <span class="time">${msg.time}</span>
+            </div>
+            <p class="preview">${msg.preview}</p>
+          </div>
+        `;
+        listItem.addEventListener("click", () => {
+          alert(`Opening chat with: ${msg.name}`);
+        });
+        messagesList.appendChild(listItem);
+      });
+    }
+    renderMessages();
+  </script>
+</body>
+</html>
