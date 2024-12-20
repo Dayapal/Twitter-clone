@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <title>X Login Page</title>
     <style>
         /* Reset Styles */
@@ -33,9 +34,25 @@
             align-items: center;
         }
 
-        .left-section img {
-            width: 350px;
-            height: auto;
+        /* Logo Styling */
+        .left-section .fa-twitter {
+            font-size: 15rem; /* Adjust the size */
+            background: linear-gradient(45deg, #1DA1F2, #0D8DCE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 10px rgba(29, 161, 242, 0.5);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                text-shadow: 2px 2px 10px rgba(29, 161, 242, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                text-shadow: 2px 2px 20px rgba(29, 161, 242, 0.8);
+            }
         }
 
         /* Right Section */
@@ -67,7 +84,6 @@
             gap: 15px;
         }
 
-        /* Button Styling */
         .button a {
             display: inline-block;
             text-align: center;
@@ -124,10 +140,9 @@
     </style>
 </head>
 <body>
-    <!-- Left Section with X Logo -->
+    <!-- Left Section with Animated Logo -->
     <div class="left-section">
-        <!-- Replace this image with your custom logo -->
-        <img src="https://th.bing.com/th/id/OIP.biG9UdrkNGTbvX1YvOvY4AHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="X Logo">
+        <i class="fa-brands fa-twitter"></i>
     </div>
 
     <!-- Right Section with Login Buttons -->
@@ -135,22 +150,53 @@
         <div class="heading">Happening now</div>
         <div class="subheading">Join today.</div>
         <div class="button">
-            <a href="https://accounts.google.com" target="_blank">Sign in with Google</a>
-            <a href="https://appleid.apple.com" target="_blank">Sign up with Apple</a>
-            <a href="https://x.com/signup" target="_blank" class="create-account">Create account</a>
+            <a href="#" onclick="logIn('Google')">Log in with Google</a>
+            <a href="#" onclick="logIn('Apple')">Log in with Apple</a>
+            <a href="#" class="create-account" onclick="signUp()">Create account</a>
         </div>
         <div class="text">
             By signing up, you agree to the <a href="https://x.com/en/tos" target="_blank">Terms of Service</a> and <a href="https://x.com/en/privacy" target="_blank">Privacy Policy</a>.
         </div>
 
         <div class="text" style="margin-top: 30px;">
-            Already have an account? <a href="https://x.com/login" target="_blank">Sign in</a>
+            Already have an account? <a href="#" onclick="logIn('SignIn')">Sign in</a>
         </div>
+        
     </div>
 
     <!-- Footer -->
     <div class="footer">
         Welcome to X.com. For privacy details, visit <a href="https://x.com/en/privacy" target="_blank">here</a>.
     </div>
+
+    <script>
+        // Authentication Logic
+        function signUp() {
+            const email = prompt("Enter your email:");
+            const password = prompt("Enter your password:");
+
+            if (email && password) {
+                // Save user credentials to local storage
+                localStorage.setItem('user', JSON.stringify({ email, password }));
+                alert('Sign-up successful! You can now log in.');
+            } else {
+                alert('Please provide valid email and password.');
+            }
+        }
+
+        function logIn(method) {
+            const email = prompt(`Enter your email for ${method}:`);
+            const password = prompt(`Enter your password for ${method}:`);
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                alert(`${method} login successful!`);
+                window.location.href = 'Home.html'; // Redirect to home page
+            } else {
+                alert(`Invalid email or password for ${method}. Please try again.`);
+            }
+        }
+    </script>
 </body>
 </html>
