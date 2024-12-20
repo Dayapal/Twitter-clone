@@ -6,9 +6,6 @@
     font-family: Arial, sans-serif;
 }
 /* ---------------scroll bar part ---------------------- */
-
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -124,6 +121,20 @@ html {
     justify-content: space-evenly;
     /* padding: 1rem; */
     color: grey;
+    margin-top: 1rem;
+    
+   
+}
+.header-part span{
+    margin: 2rem;
+}
+
+.header-part div:hover{
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
+    cursor: pointer;
+    border-radius: 1rem;
+    color: white;
+
 }
 
 hr {
@@ -138,7 +149,7 @@ hr {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 1rem 1rem;
 }
 
 .profile-section img {
@@ -262,6 +273,14 @@ hr {
     justify-content: space-between;
     font-size: 1.5rem;
     margin: .2rem 2rem .5rem 2rem;
+    padding: 1rem;
+}
+
+.middle-icon i:hover{
+    background: linear-gradient(to bottom, #8b2cc4, #1e5bd2);
+    cursor: pointer;
+  
+
 }
 #profile-image{
     width: 2.9rem;
@@ -280,9 +299,7 @@ hr {
     align-items: center;
    
 }
-.profile-items > div{
-    margin: .4rem;
-}
+
 .left-content > div i{
     margin-right: .5rem;
     color: gray;
@@ -310,16 +327,11 @@ hr {
     margin-left: 10rem;
 
 }
-#python img{
-    width: 65%;
-    margin-left: 5rem;
-    
-}
 /* -------------------------------------------------------------------------- */
 
 
 .parent-container  .right-side-page {
-    width: 35%;
+    width: 38%;
     background-color: rgb(0, 0, 0);
 }
 
@@ -371,15 +383,15 @@ hr {
 .relevant-people, .premium-subscribe {
     background-color: #000000;
     border-radius: 10px;
-    padding: 0.5rem;
-    margin: 3.2rem;
+    padding: 1rem;
+    margin: 3rem;
     border: 1px solid grey;
    
 }
 
 h3 {
-    font-size: 1.2rem;
-    margin-bottom: 1.4rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.6rem;
 }
 
 .person-card {
@@ -391,11 +403,10 @@ h3 {
     background-color:#1DA1F2;
     color: #000;
     border: none;
-    padding: 8px 1rem;
+    padding: 8px 12px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 0.5rem;
 }
 
 .subscribe-btn:hover {
