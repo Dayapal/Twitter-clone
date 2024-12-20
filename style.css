@@ -371,7 +371,7 @@ hr {
 .relevant-people, .premium-subscribe {
     background-color: #000000;
     border-radius: 10px;
-    padding: 1rem;
+    padding: 0.5rem;
     margin: 3.2rem;
     border: 1px solid grey;
    
@@ -395,7 +395,7 @@ h3 {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .subscribe-btn:hover {
