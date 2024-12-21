@@ -176,7 +176,7 @@ header p {
 .image-card img {
     width: 90%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 1rem;
     transition: transform 0.5s ease, filter 0.5s ease;
 }
 
