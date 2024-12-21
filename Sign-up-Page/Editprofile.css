@@ -1,0 +1,1696 @@
+
+
+
+
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+    overflow-y: scroll;
+    height: auto;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  
+  }
+  
+  
+  
+
+  main.middle-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    border-right: 1px solid gray;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      padding: 0;  /* remove padding to match content width */
+  }
+  
+  main.middle-content p {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+    font-size: 1em;
+    text-align: left;
+    padding: 0 20px; /* Added padding back for text */
+  }
+  
+  nav.left-nav ul {
+    list-style: none;
+    padding: 0;
+    display: block;
+  }
+  
+  nav.left-nav li {
+    margin-bottom: 10px;
+  }
+  nav.left-nav a {
+    display: block;
+  }
+  nav.left-nav a:hover {
+    background-color: #222;
+  }
+  aside.right-nav h3 {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+  }
+  aside.right-nav ul {
+    list-style: none;
+    padding: 0;
+    display: block;
+  }
+  aside.right-nav li {
+    margin-bottom: 10px;
+  }
+  aside.right-nav a {
+    display: block;
+  }
+  aside.right-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main.middle-content h1,
+  main.middle-content p {
+    display: block;
+  }
+  
+  /* Styling for Profile container */
+  .profile-container{
+    display: flex;
+    flex-direction: column;
+     width: 100%; /* Take full available width of main*/
+    height: auto;
+    gap: 1em; /*gap between rows */
+    box-sizing: border-box;
+     position: relative; /* To position profile pic over the cover pic */
+      padding: 0; /* Removed from here*/
+       /* margin-top: 3em; remove from here */
+  }
+  
+  .cover-photo-container{
+    width: 100%;
+    position: relative;
+  }
+  
+  .cover-photo {
+      background-color: gray;
+      height: 15em;
+      width: 100%; /* Use full width */
+      box-sizing: border-box;
+      position: relative;
+      background-size: 100% auto; /* Or use: background-size: 100% contain; */
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  
+  
+  .profile-pic-container{
+     position: absolute;
+      left: 1.5em;
+    bottom: 8.5em;
+  }
+  .profile-pic{
+    height: 8em;
+    width: 8em;
+    background-color: white;
+    border: 0.3em solid black;
+    border-radius: 50%;
+       background-size: cover;
+      background-position: center;
+  }
+  .edit-btn-container{
+    position: absolute;
+     top: 55%;
+    left: 29em;
+   transform: translateY(10px);
+  }
+  .edit-profile-btn{
+    background-color: transparent;
+    color: white;
+     border: 0.06em solid white;
+    border-radius: 2em;
+    padding: 0.7em 1.8em;
+    cursor: pointer;
+  }
+  .edit-profile-btn:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* New Profile info styling */
+  .profile-info { /* Added the missing selector here*/
+    display: flex;
+    flex-direction: column;
+    margin-top: 4em;
+    margin-left:1em;
+  
+  }
+  .profile-name-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-bottom: 0.2em;
+  }
+  .profile-name {
+      font-size: 1.3em;
+      font-weight: bold;
+    margin: 0;
+  }
+   .profile-mail{
+     font-size: 0.9em;
+     font-weight: bolder;
+  
+  }
+  .profile-status {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+  }
+  .profile-join-date {
+    font-size: 0.9em;
+     margin-bottom: 0.8em;
+    color: #aaa;
+       padding-bottom: 0.5em;
+  }
+  .profile-follow {
+    font-size: 0.9em;
+    color: #aaa;
+    display: flex;
+    gap: 1em;
+  }
+  /* styling for new nav menu */
+  nav.profile-nav-menu{
+      border-bottom: 1px solid gray;
+      margin-left: -20px; /* Addded to move it to left */
+      margin-right: -20px;/* Addded to move it to right */
+       width: calc(100% + 40px); /* Addded this */
+        position: relative; /* ADDED: set nav to relative to make hover overlap */
+  
+  
+  }
+  nav.profile-nav-menu ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+  
+    }
+  nav.profile-nav-menu .nav-item-container{
+      position: relative;/* set position to relative to make glow work */
+      padding: 0.5rem 0;
+      margin-bottom: -1.05rem; /*Added this to make the container overlap with the bottom line */
+  
+  }
+  nav.profile-nav-menu .nav-item{
+      display: block; /* to take full space */
+      font-weight: 600;/* make the font thick*/
+      color: white; /* make the font white */
+      text-decoration: none; /* remove default text underline*/
+      padding: 0.3rem 1rem; /*Added padding so box shadow is visible and takes edges*/
+        border-radius: 0;/* set radius to 0 to remove curve*/
+  
+    }
+  
+  nav.profile-nav-menu .nav-item-container:hover::after {
+     content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    border-bottom: 3px solid transparent; /*set border to transparent initially*/
+  }
+  
+  /* Keyframes for animation of the glow */
+  @keyframes glow{
+      from{
+            border-bottom: 3px solid transparent;
+         }
+      to{
+        border-bottom: 3px solid #00bfff; /*Set the color of line that glows */
+  
+         }
+  }
+  nav.profile-nav-menu .nav-item:hover {
+      cursor: pointer; /* change cursor on hover */
+        font-weight: bold;/* make the text bold on hover*/
+          background-color: rgba(51, 50, 50, 0.932);  /*Added background so we can create the hover effect */
+          
+          
+  }
+  /* Active Class for the element */
+  nav.profile-nav-menu .nav-item.active::after { /* this styles the selected element */
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid #00bfff; /* Add a line to active element */
+  }
+  .who-to-follow{
+    padding: 1rem;
+     width: calc(100% + 40px);
+      margin-left: -20px; /* Addded to move it to left */
+      margin-right: -20px;/* Addded to move it to right */
+  }
+  
+      .who-to-follow-container{
+        width: calc(100% + 40px);
+        margin-left: 1em; /* Addded to move it to left */
+        margin-right: -5px;/* Addded to move it to right */
+         padding: 1rem;
+        position: relative;
+      }
+    .posts-who-to-follow .follow-btn-container {
+          position: absolute;
+          right: -5rem;
+          top: 0;
+      }
+      .replies-who-to-follow .follow-btn-container {
+      position: absolute;
+      right: -13.5rem;
+      top: 0;
+  }
+  
+  .section-heading {
+      font-weight: bold;
+       margin-bottom: 1rem;
+       font-size: 1.2rem;
+  }
+  .follow-suggestion {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    margin-bottom: 1.5em;
+    position: relative;
+  
+  }
+  
+  .follow-profile-pic {
+    width: 3rem;
+    height: 3rem;
+      border-radius: 50%;
+    background-color: gray;
+      display: flex;
+    justify-content: center; /* Center the image horizontally */
+      overflow: hidden; /* Added to clip image overflow*/
+  }
+  .follow-profile-pic img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .follow-details {
+      display: flex;
+      flex-direction: column;
+     }
+  
+  .follow-name {
+      font-weight: bold;
+      font-size: 1rem;
+  
+  }
+  
+  .follow-username{
+        font-size: 0.8rem;
+    color: #aaa;
+  
+  }
+  .follow-status{
+   font-size: 0.9em;
+      color: #aaa;
+  }
+  .follow-btn{
+    padding: 0.50em 2.0em;
+        border-radius: 3em;
+    background-color: white;
+      color: rgb(0, 0, 0);
+      border: 0.08em solid white;
+   cursor: pointer;
+     transition-duration: 0.5s; /* added a duration */
+  
+  }
+  .follow-btn:hover {
+     background-color: rgb(173, 165, 165);
+  
+  }
+  .show-more-container{
+      margin-top: 0.5em;
+      text-align: left;
+      
+  
+  }
+  .show-more-container a {
+    /* Other styles */
+    color: #00bfff;
+    text-decoration: none;
+  }
+  .content-container{
+    display: none;
+  }
+  .dummy-content{
+       padding: 20px;
+      margin-top: 1em;
+    }
+  
+    /* Dim background when form is open */
+  .dimmed-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+      display: none;
+  }
+  .profile-name-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      margin-bottom: 0.2em;
+  }
+  .profile-name {
+      font-size: 1.3em;
+      font-weight: bold;
+      margin: 0;
+  }
+  
+  
+  .get-verified-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: transparent;
+      color:white;
+      border: 1px solid #00bfff;
+      border-radius: 1.5em;
+      text-decoration: none;
+      font-size: 1.0em;
+      padding: 0.2em 0.6em;
+      gap: 0.3em;
+      cursor: pointer;
+       transition-duration: 0.5s; /* added a duration */
+          white-space: nowrap; /* Prevent text from wrapping */
+  
+  }
+  .get-verified-btn:hover {
+    background-color: rgba(0, 191, 255, 0.1); /* Optional hover effect */
+  }
+  
+  .verified-symbol {
+      width: 0.7em;
+      height: 0.7em;
+      background-color: #00bfff;
+      border-radius: 50%;
+      display: inline-block;
+     position: relative; /* Required for using ::before */
+  }
+  .verified-symbol::before{
+      content: '';
+        position: absolute;
+        top: 50%;
+      left: 50%;
+        width: 0.3em;
+        height: 0.15em;
+          border: solid white;
+          border-width: 0 0.15em 0.15em 0;
+          transform: translate(-50%,-50%) rotate(-45deg); /* rotate the checkmark */
+  }
+  
+  .edit-profile-form {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+       background-color: rgb(0, 0, 0);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 10px black;
+      max-height: 75%;
+       overflow-y: auto;
+      z-index: 1000;
+      box-sizing: border-box;
+  }
+  
+  .edit-profile-form .button-div {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: calc(100% - 20px);
+    cursor: pointer; /* Add cursor pointer on hover */
+    transition: background-color 0.2s ease; /* Add transition*/
+  }
+  
+  
+  .edit-profile-form .button-div:hover {
+    background-color: #222; /* change background color on hover */
+  }
+  
+  .edit-profile-form .button-div::after {
+   content: '>';
+   font-size: 15px;
+   color: #fff;
+  }
+  
+  .edit-profile-form h2 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      text-align: center;
+  }
+  
+  .edit-profile-form .close-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      transition: opacity 0.3s;
+  }
+  
+  .edit-profile-form .close-btn:hover {
+      opacity: 0.7;
+  }
+  
+  .edit-profile-form .save-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 18px;
+      color: white;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.3s;
+  }
+  
+  .edit-profile-form .save-btn:hover {
+      opacity: 0.7;
+  }
+  
+  .edit-profile-form label {
+      font-size: 1em;
+      margin-bottom: 5px;
+      display: block;
+      margin-top: 10px;
+  }
+  
+  .edit-profile-form input,
+  .edit-profile-form textarea {
+       width: calc(100% - 20px);
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+       background-color: #2f2f2f;
+      color: white;
+        box-sizing: border-box;
+  }
+  
+  .edit-profile-form input[type="file"] {
+    background-color: transparent;
+    padding: 0px;
+  }
+  
+  .edit-profile-form button {
+      padding: 10px 20px;
+      background-color: #1da1f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+  }
+  
+  .edit-profile-form button:hover {
+      background-color: #0a95d3;
+  }
+  
+  .profile-pic-main img{
+    border-radius: 50%;
+    
+  }
+  
+  .edit-profile-form .profile-pic-edit {
+      position: relative;
+     width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-image: url("/profile2/images/ArJvdmtj_400x400.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 4px solid rgb(26, 22, 22);
+      margin: 0px;
+      margin-right: 20px;
+  }
+  
+   .edit-profile-form .profile-pic-edit-container {
+     display: flex;
+     align-items: flex-start;
+     margin: 10px 0px;
+     justify-content: flex-start;
+  }
+  
+  .edit-profile-form .cover-photo-edit {
+      width: 100%;
+      height: 100px;
+      background-image: url("/profile2/images/logox.png");
+      background-size: 100% auto;
+      background-position: center;
+       margin: 0px auto;
+      border-radius: 8px;
+  }
+  
+  .edit-profile-form .camera-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px;
+      height: 25px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+  }
+  
+  .edit-profile-form .camera-icon:hover {
+      background-color: #555;
+  }
+  
+  .edit-profile-form .camera-icon::before {
+      content: '\260E';
+      font-size: 15px;
+      color: #fff;
+  }
+  .edit-profile-form .birthdate-text {
+      padding: 10px;
+       margin-bottom: 10px;
+       border-bottom: 1px solid #333;
+        display: flex;
+       justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        width: calc(100% - 20px);
+  }
+  
+  .main-content .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      box-sizing: border-box;
+      width: 100%;
+  }
+  
+  .main-content .profile-info {
+      align-items: flex-start;
+      display: flex;
+      width: 100%;
+      margin-bottom: 0px;
+  }
+   .main-content .profile-info  .profile-pic-main {
+           width: 80px;
+              height: 80px;
+              border-radius: 50%;
+              background-image: url('/profile2/images/broken.png');
+               background-size: cover;
+             background-position: center;
+               border: 4px solid rgb(26, 22, 22);
+              margin-right: 20px;
+      }
+      .main-content .profile-details {
+      display: flex;
+      flex-direction: column;
+          margin-right: 20px;
+  }
+  
+  .main-content .profile-details > * {
+      margin-bottom: 2px;
+  }
+  .main-content .profile-details  .profile-name {
+             margin-bottom: 6px;
+      }
+  
+  .main-content .profile-details .verified-details,
+  .main-content .profile-details .handle,
+  .main-content .profile-details .join-details,
+  .main-content .profile-details .follow-count {
+      margin-bottom: 4px;
+  }
+   .main-content .profile-menu {
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0px;
+      margin-bottom: 5px;
+      position: relative;
+  }
+  
+  .main-content .profile-menu::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+  }
+  
+  .main-content .profile-menu .menu-item {
+      padding: 10px 0px;
+      cursor: pointer;
+      position: relative;
+  }
+  
+  .main-content .profile-menu .menu-item:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1da1f2;
+  }
+  
+  .main-content .who-to-follow {
+      padding: 20px;
+      box-sizing: border-box;
+      width: 100%;
+  }
+  
+  .main-content .who-to-follow h2 {
+      margin-bottom: 10px;
+  }
+  
+  .main-content .who-to-follow .profile-suggestion {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0px;
+  }
+  
+  .main-content .who-to-follow .profile-image {
+        width: 50px;
+        height: 50px;
+      border-radius: 50%;
+      background-image: url('/profile2/images/broken.png');
+       background-size: cover;
+      background-position: center;
+          border: 4px solid rgb(26, 22, 22);
+      margin-right: 15px;
+  }
+  
+  .main-content .who-to-follow .profile-desc {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .main-content .who-to-follow .profile-details .profile-name {
+      margin: 0px;
+      font-size: 15px;
+  }
+  
+  .main-content .who-to-follow .profile-details .handle {
+      font-size: small;
+      color: rgb(99, 103, 107);
+  }
+  
+  .main-content .who-to-follow .follow-btn {
+      background-color: #000;
+      color: white;
+      padding: 7px 15px;
+      border: 1px solid #222;
+      border-radius: 20px;
+      cursor: pointer;
+  }
+  
+  .main-content .who-to-follow .follow-btn:hover {
+      background-color: #222;
+  }
+  
+  .main-content .who-to-follow .show-more {
+      display: block;
+      margin-top: 10px;
+      color: #1da1f2;
+      cursor: pointer;
+  }
+  .who-to-follow-container{
+    height: 31rem;
+  }
+  .main-content .who-to-follow .show-more:hover {
+      text-decoration: underline;
+  }
+  .tab-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center horizontally */
+      padding: 20px;    /* Add some padding */
+      max-width: 80%; /*Set a max width */
+      margin: 0 auto; /*Center container horizontally*/
+  }
+  
+  .tab-content h1 {
+      text-align: center;
+      margin-bottom: 20px;
+  }
+  
+  .tab-content p {
+       text-align: center;
+       margin-bottom: 1em;
+  }
+  
+   .tab-content .get-verified-btn {
+       margin: 0 auto; /* Center the button */
+   }
+  .tab-content .get-verified-btn {
+          padding: 0.6em 1.2em; /* Adjust padding if needed for size */
+         font-size: 1em; /* Adjust font-size for size */
+  
+  }
+  .tab-content div span{
+        display: block;
+      text-align: center;
+  }
+  .top-nav-bar-container{
+     width: 100%;
+    
+  }
+  
+  .top-profile-posts {
+    font-size: 1em;
+    color: #aaa;
+      margin-left: 2em;
+      margin-right: 10em;
+  }
+  
+  
+  .top-nav-bar {
+     display: flex;
+      align-items: center;
+    padding: 0.7rem 20px;
+      border-bottom: 1px solid grey;
+  
+    }
+   .back-arrow-container{
+     position: relative;
+      width: 20px;
+      height: 20px;
+       display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+   .back-arrow{
+      
+       display: inline-block;
+      padding: 0.35em;
+      margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+        font-size: 1.4em;
+        color:white;
+        
+  }
+    
+  
+  .back-arrow-container:hover::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: black;
+      color: white;
+      overflow-y: scroll;
+      height: auto;
+      text-decoration: none;
+    }
+    
+    .container {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+    }
+    
+    nav.left-nav,
+    main.middle-content,
+    aside.right-nav {
+      border-right: 1px solid gray;
+      padding: 20px;
+      box-sizing: border-box;
+      border-right: 1px solid gray;
+    }
+    
+    nav.left-nav {
+      width: 270px;
+    }
+    
+    main.middle-content {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      border-right: 1px solid gray;
+        overflow-y: scroll;
+        scrollbar-width: none; /* Firefox */
+        padding: 0;  /* remove padding to match content width */
+    }
+    
+    /* WebKit (Chrome, Safari) - For smooth animation of the scroll bar */
+    main.middle-content::-webkit-scrollbar {
+      width: 0;
+    }
+    
+    main.middle-content p {
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+      font-size: 1em;
+      text-align: left;
+      padding: 0 20px; /* Added padding back for text */
+    }
+    
+    
+    aside.right-nav {
+      width: 330px;
+      border-right: none;
+    }
+    
+    nav.left-nav ul {
+      list-style: none;
+      padding: 0;
+      display: block;
+    }
+    
+    nav.left-nav li {
+      margin-bottom: 10px;
+    }
+    nav.left-nav a {
+      display: block;
+    }
+    nav.left-nav a:hover {
+      background-color: #222;
+    }
+    aside.right-nav h3 {
+      border-bottom: 1px solid gray;
+      padding-bottom: 10px;
+    }
+    aside.right-nav ul {
+      list-style: none;
+      padding: 0;
+      display: block;
+    }
+    aside.right-nav li {
+      margin-bottom: 10px;
+    }
+    aside.right-nav a {
+      display: block;
+    }
+    aside.right-nav a:hover {
+      text-decoration: underline;
+    }
+    
+    main.middle-content h1,
+    main.middle-content p {
+      display: block;
+    }
+    
+    /* Styling for Profile container */
+    .profile-container{
+      display: flex;
+      flex-direction: column;
+      width: 100%; /* Take full available width of main*/
+      height: auto;
+      gap: 1em; /*gap between rows */
+      box-sizing: border-box;
+       position: relative; /* To position profile pic over the cover pic */
+        padding: 0; /* Removed from here*/
+        margin-top: 3em;
+    }
+    
+    .cover-photo-container{
+      width: 100%;
+      position: relative;
+    }
+    
+    .cover-photo {
+        background-color: gray;
+        height: 15em;
+        width: 100%; /* Use full width */
+        box-sizing: border-box;
+        position: relative;
+        background-size: 100% auto; /* Or use: background-size: 100% contain; */
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    
+    .profile-pic-container{
+       position: absolute;
+        left: 1.5em;
+      bottom: 8.5em;
+    }
+    .profile-pic{
+      height: 8em;
+      width: 8em;
+      background-color: white;
+      border: 0.3em solid black;
+      border-radius: 50%;
+         background-size: cover;
+        background-position: center;
+    }
+    .edit-btn-container{
+      position: absolute;
+       top: 55%;
+      left: 29em;
+     transform: translateY(10px);
+    }
+    .edit-profile-btn{
+      background-color: transparent;
+      color: white;
+       border: 0.06em solid white;
+      border-radius: 2em;
+      padding: 0.7em 1.8em;
+      cursor: pointer;
+    }
+    .edit-profile-btn:hover{
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    
+    /* New Profile info styling */
+    .profile-info { /* Added the missing selector here*/
+      display: flex;
+      flex-direction: column;
+      margin-top: 4em;
+      margin-left:1em;
+    
+    }
+    .profile-name-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin-bottom: 0.2em;
+    }
+    .profile-name {
+        font-size: 1.3em;
+        font-weight: bold;
+      margin: 0;
+    }
+     .profile-mail{
+       font-size: 0.9em;
+       font-weight: bolder;
+    
+    }
+    .profile-status {
+      font-size: 1em;
+      margin-bottom: 0.5em;
+      margin-top: 0.5em;
+    }
+    .profile-join-date {
+      font-size: 0.9em;
+       margin-bottom: 0.8em;
+      color: #aaa;
+         padding-bottom: 0.5em;
+    }
+    .profile-follow {
+      font-size: 0.9em;
+      color: #aaa;
+      display: flex;
+      gap: 1em;
+    }
+    /* styling for new nav menu */
+    nav.profile-nav-menu{
+        border-bottom: 1px solid gray;
+        margin-left: -20px; /* Addded to move it to left */
+        margin-right: -20px;/* Addded to move it to right */
+         width: calc(100% + 40px); /* Addded this */
+          position: relative; /* ADDED: set nav to relative to make hover overlap */
+    
+    
+    }
+    nav.profile-nav-menu ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    
+      }
+    nav.profile-nav-menu .nav-item-container{
+        position: relative;/* set position to relative to make glow work */
+        padding: 0.5rem 0;
+        margin-bottom: -1.05rem; /*Added this to make the container overlap with the bottom line */
+    
+    }
+    nav.profile-nav-menu .nav-item{
+        display: block; /* to take full space */
+        font-weight: 600;/* make the font thick*/
+        color: white; /* make the font white */
+        text-decoration: none; /* remove default text underline*/
+        padding: 0.3rem 1rem; /*Added padding so box shadow is visible and takes edges*/
+          border-radius: 0;/* set radius to 0 to remove curve*/
+    
+      }
+    
+    nav.profile-nav-menu .nav-item-container:hover::after {
+       content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      border-bottom: 3px solid transparent; /*set border to transparent initially*/
+    }
+    
+    /* Keyframes for animation of the glow */
+    @keyframes glow{
+        from{
+              border-bottom: 3px solid transparent;
+           }
+        to{
+          border-bottom: 3px solid #00bfff; /*Set the color of line that glows */
+    
+           }
+    }
+    nav.profile-nav-menu .nav-item:hover {
+        cursor: pointer; /* change cursor on hover */
+          font-weight: bold;/* make the text bold on hover*/
+            background-color: rgba(51, 50, 50, 0.932);  /*Added background so we can create the hover effect */
+            
+            
+    }
+    /* Active Class for the element */
+    nav.profile-nav-menu .nav-item.active::after { /* this styles the selected element */
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 3px solid #00bfff; /* Add a line to active element */
+    }
+    .who-to-follow{
+      padding: 1rem;
+       width: calc(100% + 40px);
+        margin-left: -20px; /* Addded to move it to left */
+        margin-right: -20px;/* Addded to move it to right */
+    }
+    
+        .who-to-follow-container{
+          width: calc(100% + 40px);
+          margin-left: 1em; /* Addded to move it to left */
+          margin-right: -5px;/* Addded to move it to right */
+           padding: 1rem;
+          position: relative;
+        }
+      .posts-who-to-follow .follow-btn-container {
+            position: absolute;
+            right: -5rem;
+            top: 0;
+        }
+        .replies-who-to-follow .follow-btn-container {
+        position: absolute;
+        right: -5rem;
+        top: 0;
+    }
+    
+    .section-heading {
+        font-weight: bold;
+         margin-bottom: 1rem;
+         font-size: 1.2rem;
+    }
+    .follow-suggestion {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+      margin-bottom: 1.5em;
+      position: relative;
+    
+    }
+    
+    .follow-profile-pic {
+      width: 3rem;
+      height: 3rem;
+        border-radius: 50%;
+      background-color: gray;
+        display: flex;
+      justify-content: center; /* Center the image horizontally */
+        overflow: hidden; /* Added to clip image overflow*/
+    }
+    .follow-profile-pic img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+    
+    .follow-details {
+        display: flex;
+        flex-direction: column;
+       }
+    
+    .follow-name {
+        font-weight: bold;
+        font-size: 1rem;
+    
+    }
+    
+    .follow-username{
+          font-size: 0.8rem;
+      color: #aaa;
+    
+    }
+    .follow-status{
+     font-size: 0.9em;
+        color: #aaa;
+    }
+    .follow-btn{
+      padding: 0.50em 2.0em;
+          border-radius: 3em;
+      background-color: white;
+        color: rgb(0, 0, 0);
+        border: 0.08em solid white;
+     cursor: pointer;
+       transition-duration: 0.5s; /* added a duration */
+    
+    }
+    .follow-btn:hover {
+       background-color: rgb(173, 165, 165);
+    
+    }
+    .show-more-container{
+        margin-top: 0.5em;
+        text-align: left;
+        
+    
+    }
+    .show-more-container a {
+      /* Other styles */
+      color: #00bfff;
+      text-decoration: none;
+    }
+    .content-container{
+      display: none;
+    }
+    .dummy-content{
+         padding: 20px;
+        margin-top: 1em;
+      }
+    
+      /* Dim background when form is open */
+    .dimmed-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+    }
+    .profile-name-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        margin-bottom: 0.2em;
+    }
+    .profile-name {
+        font-size: 1.3em;
+        font-weight: bold;
+        margin: 0;
+    }
+    
+    
+    .get-verified-btn {
+        display: inline-flex;
+        align-items: center;
+        background-color: transparent;
+        color:white;
+        border: 1px solid #00bfff;
+        border-radius: 1.5em;
+        text-decoration: none;
+        font-size: 1.0em;
+        padding: 0.2em 0.6em;
+        gap: 0.3em;
+        cursor: pointer;
+         transition-duration: 0.5s; /* added a duration */
+            white-space: nowrap; /* Prevent text from wrapping */
+    
+    }
+    .get-verified-btn:hover {
+      background-color: rgba(0, 191, 255, 0.1); /* Optional hover effect */
+    }
+    
+    .verified-symbol {
+        width: 0.7em;
+        height: 0.7em;
+        background-color: #00bfff;
+        border-radius: 50%;
+        display: inline-block;
+       position: relative; /* Required for using ::before */
+    }
+    .verified-symbol::before{
+        content: '';
+          position: absolute;
+          top: 50%;
+        left: 50%;
+          width: 0.3em;
+          height: 0.15em;
+            border: solid white;
+            border-width: 0 0.15em 0.15em 0;
+            transform: translate(-50%,-50%) rotate(-45deg); /* rotate the checkmark */
+    }
+    
+    .edit-profile-form {
+        display: none;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+         background-color: rgb(0, 0, 0);
+        color: white;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 600px;
+        box-shadow: 0 4px 10px black;
+        max-height: 75%;
+         overflow-y: auto;
+        z-index: 1000;
+        box-sizing: border-box;
+    }
+    
+    .edit-profile-form .button-div {
+      padding: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      width: calc(100% - 20px);
+      cursor: pointer; /* Add cursor pointer on hover */
+      transition: background-color 0.2s ease; /* Add transition*/
+    }
+    
+    
+    .edit-profile-form .button-div:hover {
+      background-color: #222; /* change background color on hover */
+    }
+    
+    .edit-profile-form .button-div::after {
+     content: '>';
+     font-size: 15px;
+     color: #fff;
+    }
+    
+    .edit-profile-form h2 {
+        font-size: 1.3em;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .edit-profile-form .close-btn {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        color: white;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    
+    .edit-profile-form .close-btn:hover {
+        opacity: 0.7;
+    }
+    
+    .edit-profile-form .save-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 18px;
+        color: white;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.3s;
+    }
+    
+    .edit-profile-form .save-btn:hover {
+        opacity: 0.7;
+    }
+    
+    .edit-profile-form label {
+        font-size: 1em;
+        margin-bottom: 5px;
+        display: block;
+        margin-top: 10px;
+    }
+    
+    .edit-profile-form input,
+    .edit-profile-form textarea {
+         width: calc(100% - 20px);
+        margin-bottom: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+         background-color: #2f2f2f;
+        color: white;
+          box-sizing: border-box;
+    }
+    
+    .edit-profile-form input[type="file"] {
+      background-color: transparent;
+      padding: 0px;
+    }
+    
+    .edit-profile-form button {
+        padding: 10px 20px;
+        background-color: #1da1f2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    
+    .edit-profile-form button:hover {
+        background-color: #0a95d3;
+    }
+    
+    .profile-pic-main img{
+      border-radius: 50%;
+      
+    }
+    
+    .edit-profile-form .profile-pic-edit {
+        position: relative;
+       width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-image: url("/profile2/images/ArJvdmtj_400x400.jpg");
+        background-size: cover;
+        background-position: center;
+        border: 4px solid rgb(26, 22, 22);
+        margin: 0px;
+        margin-right: 20px;
+    }
+    
+     .edit-profile-form .profile-pic-edit-container {
+       display: flex;
+       align-items: flex-start;
+       margin: 10px 0px;
+       justify-content: flex-start;
+    }
+    
+    .edit-profile-form .cover-photo-edit {
+        width: 100%;
+        height: 100px;
+        background-image: url("/profile2/images/logox.png");
+        background-size: 100% auto;
+        background-position: center;
+         margin: 0px auto;
+        border-radius: 8px;
+    }
+    
+    .edit-profile-form .camera-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 25px;
+        height: 25px;
+        background-color: #333;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .edit-profile-form .camera-icon:hover {
+        background-color: #555;
+    }
+    
+    .edit-profile-form .camera-icon::before {
+        content: '\260E';
+        font-size: 15px;
+        color: #fff;
+    }
+    .edit-profile-form .birthdate-text {
+        padding: 10px;
+         margin-bottom: 10px;
+         border-bottom: 1px solid #333;
+          display: flex;
+         justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+          width: calc(100% - 20px);
+    }
+    
+    .main-content .profile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .main-content .profile-info {
+        align-items: flex-start;
+        display: flex;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+     .main-content .profile-info  .profile-pic-main {
+             width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-image: url('/profile2/images/broken.png');
+                 background-size: cover;
+               background-position: center;
+                 border: 4px solid rgb(26, 22, 22);
+                margin-right: 20px;
+        }
+        .main-content .profile-details {
+        display: flex;
+        flex-direction: column;
+            margin-right: 20px;
+    }
+    
+    .main-content .profile-details > * {
+        margin-bottom: 2px;
+    }
+    .main-content .profile-details  .profile-name {
+               margin-bottom: 6px;
+        }
+    
+    .main-content .profile-details .verified-details,
+    .main-content .profile-details .handle,
+    .main-content .profile-details .join-details,
+    .main-content .profile-details .follow-count {
+        margin-bottom: 4px;
+    }
+     .main-content .profile-menu {
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0px;
+        margin-bottom: 5px;
+        position: relative;
+    }
+    
+    .main-content .profile-menu::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #333;
+    }
+    
+    .main-content .profile-menu .menu-item {
+        padding: 10px 0px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .main-content .profile-menu .menu-item:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #1da1f2;
+    }
+    
+    .main-content .who-to-follow {
+        padding: 20px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    
+    .main-content .who-to-follow h2 {
+        margin-bottom: 10px;
+    }
+    
+    .main-content .who-to-follow .profile-suggestion {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0px;
+    }
+    
+    .main-content .who-to-follow .profile-image {
+          width: 50px;
+          height: 50px;
+        border-radius: 50%;
+        background-image: url('/profile2/images/broken.png');
+         background-size: cover;
+        background-position: center;
+            border: 4px solid rgb(26, 22, 22);
+        margin-right: 15px;
+    }
+    
+    .main-content .who-to-follow .profile-desc {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .main-content .who-to-follow .profile-details .profile-name {
+        margin: 0px;
+        font-size: 15px;
+    }
+    
+    .main-content .who-to-follow .profile-details .handle {
+        font-size: small;
+        color: rgb(99, 103, 107);
+    }
+    
+    .main-content .who-to-follow .follow-btn {
+        background-color: #000;
+        color: white;
+        padding: 7px 15px;
+        border: 1px solid #222;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    .main-content .who-to-follow .follow-btn:hover {
+        background-color: #222;
+    }
+    
+    .main-content .who-to-follow .show-more {
+        display: block;
+        margin-top: 10px;
+        color: #1da1f2;
+        cursor: pointer;
+    }
+    
+    .main-content .who-to-follow .show-more:hover {
+        text-decoration: underline;
+    }
+    .tab-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center horizontally */
+        padding: 20px;    /* Add some padding */
+        max-width: 80%; /*Set a max width */
+        margin: 0 auto; /*Center container horizontally*/
+    }
+    
+    .tab-content h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .tab-content p {
+         text-align: center;
+         margin-bottom: 1em;
+    }
+    
+     .tab-content .get-verified-btn {
+         margin: 0 auto; /* Center the button */
+     }
+    .tab-content .get-verified-btn {
+            padding: 0.6em 1.2em; /* Adjust padding if needed for size */
+           font-size: 1em; /* Adjust font-size for size */
+    
+    }
+    .tab-content div span{
+          display: block;
+        text-align: center;
+    }
+    .top-nav-bar-container{
+       width: 100%;
+       
+      
+    }
+    .top-nav-bar {
+      display: flex;
+        align-items: center;
+      padding: 1.2rem 20px;
+       border-bottom: 1px solid grey;
+       
+    
+      }
+     .back-arrow-container{
+       position: relative;
+        width: 20px;
+        height: 20px;
+         display: flex;
+          align-items: center;
+            cursor: pointer;
+      }
+     .back-arrow{
+        
+         display: inline-block;
+        padding: 0.35em;
+        margin-right: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+          font-size: 1.4em;
+    }
+      
+    
+    .back-arrow-container:hover::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+      .top-profile-name{
+         font-size: 1.2em;
+        font-weight: bold;
+          margin-left: 0.5em;
+      }
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      margin-left: 0.5em;
+  }
+    .top-profile-name{
+       font-size: 1.2em;
+      font-weight: bold;
+      margin-left: 2em;
+    }
